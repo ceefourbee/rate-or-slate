@@ -867,3 +867,15 @@ h3,
     page-break-after: avoid;
   }
 }
+
+
+/* search styles */
+.tt-dropdown-menu{
+  background-color: #aaa;
+  border-radius: 0 0 5px 5px;
+  padding: 10px;
+}
+#track-search {
+  background-color: #aaa;
+
+}
