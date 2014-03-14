@@ -1,0 +1,80 @@
+/* 
+ * Grid layout
+ *
+ * 1. Make it work with lists
+ * 2. Required in older versions of IE when using list items as columns
+ * 3. With the power of modernizr we'll see if boxsizing is supported. If not set the container width to be fixed.
+ */
+
+.container {
+  width: 90%;
+  //max-width: 884px;
+  margin: 0 auto;
+  
+  .mod-no-boxsizing & {
+    width: 884px; /* 3 */
+  }
+}
+
+grid {
+  $row: "grid-row";
+  @at-root {
+    .#{grid-row} {
+      @extend %cf;
+      padding: 0;
+    }
+    .#{&}-column {
+      float: left;
+      display: block;
+      list-style: none; /* 1 */
+      // min-height: 144px; /* 2 */
+      margin: 0;
+      padding: 0 24px;
+      padding: 0 1.5rem;
+    }
+    .#{&}-column--25 {    
+      width: 25%;
+      *width: cw(4,4);
+      
+      .#{$row}--list &:nth-child(4n+1){
+        clear: left;
+      }
+    }
+    .#{&}-column--33 {  
+      width: 33.33333333%;
+      *width: cw(3,3);
+      
+      .#{$row}--list &:nth-child(3n+1) {
+        clear: left;
+      }
+    }
+    .#{&}-column--50 {
+      width: 50%;
+      *width: cw(2,2);
+      
+      .#{$row}--list &:nth-child(2n+1) {
+        clear: left;
+      }
+    }
+    .#{&}-column--66 {      
+      width: 66.66666666%;
+      *width: cw(3,2);
+    }
+    .#{&}-column--100 {
+      width: 100%;
+      *width: cw(1,1);
+    }
+  } 
+}
+
+.clear {
+  clear: left;
+}
+
+@media screen and (max-width: 680px) {
+  
+  .grid-column {
+    width: 100%;
+  }
+  
+}

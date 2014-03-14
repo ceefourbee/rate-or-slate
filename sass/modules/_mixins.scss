@@ -1,0 +1,38 @@
+//
+// Font size and line height calculation
+//
+// Specify a font-size and a line-height for px and rem based font sizing.
+//
+// font-size <= 24px, line-height = 1
+// font-size >= 25px && <= 48px, line-height = 2
+// font-size > 48px && <= 72px, line-height = 3
+//
+@mixin fontSize($fontSize, $lineHeight) {
+  font-size: $fontSize +px;
+  font-size: $fontSize / $baseFontSize +rem;
+  line-height: ($lineHeight * 24) / $fontSize;
+}
+
+// Base margin
+@mixin baseMargin {
+  
+  margin: 0 0 24px;
+  margin: 0 0 1.5rem;
+  
+}
+
+// Box shadow prefix
+@mixin boxShadow($top, $left, $blur, $color, $inset:"") {
+
+  -webkit-box-shadow:$top $left $blur $color #{$inset};
+     -moz-box-shadow:$top $left $blur $color #{$inset};
+          box-shadow:$top $left $blur $color #{$inset};
+          
+}
+
+// Border radius
+@mixin border-radius($top-left, $top-right:"", $bottom-right:"", $bottom-left:"") {
+  -webkit-border-radius: $top-left #{$top-right} #{$bottom-right} #{$bottom-left};
+     -moz-border-radius: $top-left #{$top-right} #{$bottom-right} #{$bottom-left};
+          border-radius: $top-left #{$top-right} #{$bottom-right} #{$bottom-left};
+}

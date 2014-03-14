@@ -1,0 +1,51 @@
+/*
+ * Media object
+ *
+ * As per stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+ *
+ * 1. Temporary fix we need to sort
+ * 
+ */
+
+
+/*
+
+<div class="media">
+    <img src="" alt="" class="img" />
+    <div class="body">
+        ...
+    </div>
+</div>
+
+*/
+.media {
+  overflow: hidden; /* 1 */
+	display: block;
+}
+.img {
+	float: left;
+  margin-right: 1em;
+}
+/* Reversed image location (right instead of left). */
+.img-rev {
+	float: right;
+  margin-left: 1em;
+}
+.img img {
+  display: block;
+}
+.body {
+	overflow: hidden;
+}
+.body > :last-child {
+	margin-bottom: 0;
+}
+
+/*
+ * Extending this
+ *
+ */
+ 
+.media__title {
+  margin-bottom: 0;
+}

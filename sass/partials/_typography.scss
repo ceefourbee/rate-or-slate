@@ -1,0 +1,12 @@
+h1,
+.h1 {
+  @include fontSize(72, 3);
+}
+h2,
+.h2 {
+  @include fontSize(48, 2);
+}
+h3,
+.h3 {
+  @include fontSize(24, 1);
+}

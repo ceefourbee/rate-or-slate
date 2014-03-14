@@ -1,0 +1,20 @@
+/*
+ * Nav abstraction/object
+ *
+ * Courtesy of http://csswizardry.com/2011/09/the-nav-abstraction/
+ *
+ * Make a list horizontal
+ *
+ */ 
+
+.nav{
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+  .nav > li,
+    .nav > li > a {
+      display: inline-block;
+     *display: inline;
+      zoom: 1;
+  }

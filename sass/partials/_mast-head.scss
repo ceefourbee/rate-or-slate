@@ -1,0 +1,13 @@
+/*
+ * Mast head styles
+ */
+ 
+mast-head {
+  @at-root {
+    .#{&} {
+      padding-top: 24px;
+      padding-top: 1.5rem;
+      text-align: center;
+    }
+  }
+}
