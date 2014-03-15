@@ -728,6 +728,10 @@ h3,
   display: inline-block;
 }
 
+.form-group {
+  position: relative;
+}
+
 input[type="text"],
 input[type="search"],
 input[type="tel"],
@@ -774,7 +778,7 @@ textarea {
   /* 96px */
 }
 
-.button:focus,
+button:focus,
 input:focus,
 select:focus,
 textarea:focus {
@@ -794,6 +798,22 @@ textarea:focus {
  * typeahead specific styles for the search
  *
  */
+.main-search__input-search {
+  position: absolute;
+  width: -webkit-calc(100% - 79px);
+  width: -moz-calc(100% - 79px);
+  width: calc(100% - 79px);
+}
+.main-search__input-search .mod-no-calc {
+  position: relative;
+  width: 80%;
+}
+.main-search__button-search {
+  margin-left: -webkit-calc(100% - 65px);
+  margin-left: -moz-calc(100% - 65px);
+  margin-left: calc(100% - 65px);
+}
+
 .twitter-typeahead {
   float: left;
   width: -webkit-calc(100% - 65px);

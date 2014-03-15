@@ -47,10 +47,12 @@
 
           <h2>Search tracks</h2>
           <div ng-controller="SearchController">
-            <form>
-              <label for="track-search" class="visuallyhidden">Search by artist or track name</label>
-              <input type="search" id="track-search" name="track-search" />
-              <button type="submit">Search</button>
+            <form class="main-search">
+              <div class="form-group">
+                <label for="track-search" class="visuallyhidden">Search by artist or track name</label>
+                <input type="search" name="track-search" id="track-search" class="main-search__input-search" />
+                <button type="submit" class="main-search__button-search">Search</button>
+              </div>
             </form>
             <ul id="track-search-results" ng-cloak ng-show="show">
               <li ng-repeat="searchResult in searchResults">

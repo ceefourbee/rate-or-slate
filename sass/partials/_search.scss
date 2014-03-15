@@ -2,12 +2,33 @@
  * typeahead specific styles for the search
  *
  */
+ 
+main-search {
+  @at-root {
+    .#{&}__input-search {
+      position: absolute;
+      width: -webkit-calc(100% - 79px);
+      width:    -moz-calc(100% - 79px);
+      width:         calc(100% - 79px);
+      
+      .mod-no-calc {
+        position: relative;
+        width: 80%;
+      }
+    }
+    .#{&}__button-search {
+      margin-left: -webkit-calc(100% - 65px);
+      margin-left:    -moz-calc(100% - 65px);
+      margin-left:         calc(100% - 65px);
+    }
+  }
+}
 
 .twitter-typeahead {
   float: left;
   width: -webkit-calc(100% - 65px);
-  width: -moz-calc(100% - 65px);
-  width: calc(100% - 65px);
+  width:    -moz-calc(100% - 65px);
+  width:         calc(100% - 65px);
   
   .mod-no-calc {
     width: 80%;
