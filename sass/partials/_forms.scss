@@ -1,0 +1,60 @@
+/*
+ * Base form styles
+ *
+ * 1. overcome IE <input type="submit" /> width/padding issue
+ * 2. help <input type="submit" /> text wrap when resized 
+ * 
+ */
+
+.form-field > label {
+    display: block;
+}
+.form-field > input + label {
+    display: inline-block;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="tel"],
+input[type="email"],
+input[type="submit"],
+input[type="reset"],
+button {
+  padding: .25em .375em;
+  margin: .4375em 0;
+  border: .0625em solid #CCC;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="tel"],
+input[type="email"] {
+  height: 24px;
+}
+input[type="submit"],
+input[type="reset"],
+button {
+  overflow: visible; /* 1 */
+  white-space: normal; /* 2 */
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  background-color: #F9F9F9;
+  box-shadow: 0 .125em .125em rgba(0,0,0,.1) inset; /* 0 2px 2px */
+}
+select {
+    padding: .4375em .5em;
+}
+textarea {
+    min-height: 6em; /* 96px */
+}
+
+.button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #FF9900;
+}

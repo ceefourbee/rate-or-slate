@@ -1,4 +1,6 @@
-* {
+*,
+*:before,
+*:after {
 	-webkit-box-sizing: border-box;
 		 -moz-box-sizing: border-box;
 		 			box-sizing: border-box;
@@ -7,6 +9,7 @@ html {
 	font: 1em/1.5 serif; /* set base font-size to 16px and base line-height to 1.5 of this */
 }
 body {
+/*
   color: $colourWhite;
 	background: $colourBlack;
 	font-family: Arial, Helvetica, sans-serif;
@@ -15,6 +18,7 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	text-shadow: $colourBlack 1px 1px 2px;
+*/
 }
 
 /*

@@ -12,11 +12,14 @@
 
 @import "partials/_media-object";
 
+@import "partials/_forms";
+
 @import "partials/_mast-head";
+
+@import "partials/_search";
 
 @import "partials/_helpers";
 
-@import "partials/_typeahead";
 
 // exclude at go live
-//@import "modules/_debug";
+@import "modules/_debug";

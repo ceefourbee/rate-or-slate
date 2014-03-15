@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -392,7 +393,9 @@ th {
   padding: 0;
 }
 
-* {
+*,
+*:before,
+*:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -404,14 +407,16 @@ html {
 }
 
 body {
-  color: white;
-  background: #242424;
-  font-family: Arial, Helvetica, sans-serif;
-  background-image: url(gfx/sunset4.jpg) !important;
-  background-position: 0 50%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  text-shadow: #242424 1px 1px 2px;
+  /*
+    color: $colourWhite;
+  	background: $colourBlack;
+  	font-family: Arial, Helvetica, sans-serif;
+    background-image: url(gfx/sunset4.jpg)!important;
+  	background-position: 0 50%;
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	text-shadow: $colourBlack 1px 1px 2px;
+  */
 }
 
 /*
@@ -606,7 +611,7 @@ video {
   clear: left;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 840px) {
   .grid-column {
     width: 100%;
   }
@@ -709,6 +714,74 @@ h3,
 }
 
 /*
+ * Base form styles
+ *
+ * 1. overcome IE <input type="submit" /> width/padding issue
+ * 2. help <input type="submit" /> text wrap when resized 
+ * 
+ */
+.form-field > label {
+  display: block;
+}
+
+.form-field > input + label {
+  display: inline-block;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="tel"],
+input[type="email"],
+input[type="submit"],
+input[type="reset"],
+button {
+  padding: .25em .375em;
+  margin: .4375em 0;
+  border: .0625em solid #CCC;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="tel"],
+input[type="email"] {
+  height: 24px;
+}
+
+input[type="submit"],
+input[type="reset"],
+button {
+  overflow: visible;
+  /* 1 */
+  white-space: normal;
+  /* 2 */
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  background-color: #F9F9F9;
+  box-shadow: 0 0.125em 0.125em rgba(0, 0, 0, 0.1) inset;
+  /* 0 2px 2px */
+}
+
+select {
+  padding: .4375em .5em;
+}
+
+textarea {
+  min-height: 6em;
+  /* 96px */
+}
+
+.button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #FF9900;
+}
+
+/*
  * Mast head styles
  */
 .mast-head {
@@ -717,6 +790,74 @@ h3,
   text-align: center;
 }
 
+/*
+ * typeahead specific styles for the search
+ *
+ */
+.twitter-typeahead {
+  float: left;
+  width: -webkit-calc(100% - 65px);
+  width: -moz-calc(100% - 65px);
+  width: calc(100% - 65px);
+}
+.twitter-typeahead .mod-no-calc {
+  width: 80%;
+}
+
+.tt-hint,
+.tt-input {
+  width: -webkit-calc(100% - 14px);
+  width: -moz-calc(100% - 14px);
+  width: calc(100% - 14px);
+}
+.tt-hint .mod-no-calc,
+.tt-input .mod-no-calc {
+  width: 90%;
+}
+.tt-dropdown-menu {
+  width: 100%;
+  margin-top: -.3125em;
+  padding: .4375em 0 .25em;
+  color: white;
+  background-color: #242424;
+}
+.tt-dropdown-menu p,
+.tt-dropdown-menu .tt-suggestion,
+.tt-dropdown-menu .tt-dataset-tracks {
+  margin-bottom: 0;
+}
+.tt-dropdown-menu h3,
+.tt-dropdown-menu .tt-suggestion {
+  padding: 0 .375em;
+}
+.tt-dropdown-menu .tt-suggestion {
+  cursor: pointer;
+}
+.tt-dropdown-menu .tt-cursor {
+  background-color: blue;
+  background-color: rgba(0, 0, 255, 0.7);
+}
+
+/* 
+ * Copied here so I can see what's going on
+ *
+
+<div class="tt-dataset-artists">
+  <h3 class="artists-name">Artists</h3>
+  <span class="tt-suggestions" style="display: block;">
+    <div class="tt-suggestion">
+      <p style="white-space: normal;">Spice Girls</p>
+    </div>
+    <div class="tt-suggestion">
+      <p style="white-space: normal;">Karaoke - Spice Girls</p>
+    </div>
+    <div class="tt-suggestion">
+      <p style="white-space: normal;">Luciano Pavarotti &amp; Céline Dion &amp; Eros Ramazzotti &amp; Zucchero &amp; Stevie Wonder &amp; Trisha Yearwood &amp; Vanessa Williams &amp; Spice Girls &amp; The Corrs &amp; Jon Bon Jovi</p>
+    </div>
+  </span>
+</div>
+
+ */
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
@@ -867,15 +1008,24 @@ h3,
     page-break-after: avoid;
   }
 }
-
-
-/* search styles */
-.tt-dropdown-menu{
-  background-color: #aaa;
-  border-radius: 0 0 5px 5px;
-  padding: 10px;
+/*
+ * feel the rythym with the vertical lines - guides for checking vertical rhythm
+ */
+body {
+  background-image: -webkit-linear-gradient(black 0.05em, transparent 0.05em);
+  background-image: -moz-linear-gradient(black 1px, transparent 1px);
+  background-image: -ms-linear-gradient(black 1px, transparent 1px);
+  background-image: -o-linear-gradient(black 1px, transparent 1px);
+  background-image: linear-gradient(black 1px, transparent 1px);
+  background-size: 100% 1.5em;
+  color: #242424;
+  font-family: Arial, Helvetica, sans-serif;
 }
-#track-search {
-  background-color: #aaa;
 
+/*
+ * check that lists don't contain anything other than li - bin after dev
+ */
+ol > :not(li),
+ul > :not(li) {
+  outline: 5px solid #f00;
 }
