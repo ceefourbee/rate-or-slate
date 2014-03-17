@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en-GB"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="en-GB"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="en-GB" ng-app>
+<html class="no-js" lang="en-GB">
 <!--<![endif]-->
 <head>
   <meta charset="utf-8">
@@ -16,9 +16,6 @@
   <link href="css/main.css" rel="stylesheet">
   <!-- ED: Styles for re-organising -->
   <style>
-    [ng\:cloak], [ng-cloak], .ng-cloak {
-      display: none;
-    }
   </style>
 
   <!-- REMEMBER to add a description -->
@@ -30,11 +27,14 @@
   <!-- REMEMBER add in a custom modernizr script here -->
   <script src="js/vendor/modernizr.js"></script>
 
+  <!-- Angular js application scripts, required before the html is declared. -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+  <script src="js/application/Jukebox.js"></script>
+  <script src="js/application/JukeboxController.js"></script>
 </head>
 <body>
 
-  <div class="container">
-
+  <div class='container' id='Jukebox' ng-app='Jukebox' ng-controller='JukeboxController'>
     <header role="banner" class="grid-row mast-head">
       <div class="grid-column grid-column--100">
         <h1 class="mast-head__main-title">Spotify app ui</h1>
@@ -43,37 +43,38 @@
 
     <section>
       <div class="grid-row">
-        <div class="grid-column grid-column--50">
-
-          <h2>Search tracks</h2>
-          <div ng-controller="SearchController">
-            <form class="main-search">
-              <div class="form-group">
-                <label for="track-search" class="visuallyhidden">Search by artist or track name</label>
-                <input type="search" name="track-search" id="track-search" class="main-search__input-search" />
-                <button type="submit" class="main-search__button-search">Search</button>
-              </div>
-            </form>
-            <ul id="track-search-results" ng-cloak ng-show="show">
-              <li ng-repeat="searchResult in searchResults">
-                <button type="button"></button>
-              </li>
-            </ul>
-          </div>
-
+        <div class="grid-column grid-column--33">
           <h2>Track listing</h2>
-          <div class="media" ng-cloak ng-show="show">
+          <div class="media" ng-hide ng-repeat="track in tracks | orderBy:'votes':'reverse'">
             <img src="images/broken-record-small.png" alt="" class="img-rev" />
             <div class="body">
-              <h3 class="media__title">[Artist name] <span>[Track name]</span></h3>
-              <p>Requested by: [Requester name]</p>
+              <h3 class="media__title">{{track.artists[0].name}} - {{track.name}}</h3>
+              <p>Requested by: {{track.requester}} <strong><span>{{track.votes}}</span> votes</strong></p>
             </div>
           </div>
         </div>
 
-        <div class="grid-column grid-column--50">
+        <div class="grid-column grid-column--33">
+          <h2>Search tracks</h2>
+          <div>
+            <form class="main-search">
+              <div class="form-group">
+                <label for="track-search" class="visuallyhidden">Search by artist or track name</label>
+                <input type="search" name="track-search" id="track-search" class="main-search__input-search" placeholder="search by artist, album or track name" ng-model="query" ng-change="search()" />
+              </div>
+            </form>
+            <ul id="track-search-results" ng-hide>
+              <li ng-repeat="track in results">
+                <span>{{track.name}}</span>
+                <button type="button" ng-click="request(track)">request</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-column grid-column--33">
           <h2>Now playing</h2>
-          <div id="now-playing" class="media" ng-cloak ng-show="show">
+          <div id="now-playing" class="media">
             <img id="now-playing-image" src="images/broken-record-medium.png" alt="" class="img-rev" />
             <div class="body">
               <h3 class="media__title"><span id="now-playing-artist">[Artist name]</span> <span id="now-playing-track">[Track name]</span></h3>
@@ -82,7 +83,7 @@
           </div>
 
           <h2>Latest</h2>
-          <ol id="latest" ng-cloak ng-show="show">
+          <ol id="latest">
             <li>[Some action]</li>
           </ol>
         </div>
@@ -93,7 +94,6 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script> !window.jQuery && document.write('<script src="js/vendor/jquery.js"><\/script>') </script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
