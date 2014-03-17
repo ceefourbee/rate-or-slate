@@ -407,16 +407,14 @@ html {
 }
 
 body {
-  /*
-    color: $colourWhite;
-  	background: $colourBlack;
-  	font-family: Arial, Helvetica, sans-serif;
-    background-image: url(gfx/sunset4.jpg)!important;
-  	background-position: 0 50%;
-  	background-repeat: no-repeat;
-  	background-attachment: fixed;
-  	text-shadow: $colourBlack 1px 1px 2px;
-  */
+  color: white;
+  background: #242424;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url(gfx/sunset4.jpg) !important;
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-shadow: #242424 1px 1px 2px;
 }
 
 /*
@@ -1032,14 +1030,17 @@ textarea:focus {
  * feel the rythym with the vertical lines - guides for checking vertical rhythm
  */
 body {
-  background-image: -webkit-linear-gradient(black 0.05em, transparent 0.05em);
-  background-image: -moz-linear-gradient(black 1px, transparent 1px);
-  background-image: -ms-linear-gradient(black 1px, transparent 1px);
-  background-image: -o-linear-gradient(black 1px, transparent 1px);
-  background-image: linear-gradient(black 1px, transparent 1px);
-  background-size: 100% 1.5em;
-  color: #242424;
-  font-family: Arial, Helvetica, sans-serif;
+  /*
+  	background-image: -webkit-linear-gradient(#000 .05em, transparent .05em);
+    background-image:    -moz-linear-gradient(#000 1px, transparent 1px);
+    background-image:     -ms-linear-gradient(#000 1px, transparent 1px);
+    background-image:      -o-linear-gradient(#000 1px, transparent 1px);
+    background-image:         linear-gradient(#000 1px, transparent 1px);
+    background-size: 100% 1.5em;
+    
+    color: $colourBlack;
+  	font-family: Arial, Helvetica, sans-serif;
+  */
 }
 
 /*
