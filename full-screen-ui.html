@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en-GB"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en-GB"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="en-GB"> <![endif]-->
@@ -36,49 +36,22 @@
 
   <div class='full-container clearfix' id='Jukebox' ng-app='Jukebox' ng-controller='JukeboxController'>
   
-    <div class="album-cover">
-    <img src="https://dl.dropboxusercontent.com/u/48864824/album-covers/bat-for-lashes-two-suns.jpg" alt="" />
+    <div class="album-cover" ng-hide >
+      <img src="{{playing.extraLargeImage}}" alt="playing {{playing.name}} by {{playing.artists[0].name}}" />
       <div class="album-cover__details">
-        <h3 class="album-cover__track">Track</h3>
-        <h4 class="album-cover__artist">Artist</h4>
+        <h3 class="album-cover__track">{{playing.name}}</h3>
+        <h4 class="album-cover__artist">{{playing.artists[0].name}}</h4>
       </div>
     </div>
-    <div class="album-cover">
-      <img src="https://dl.dropboxusercontent.com/u/48864824/album-covers/dj-yoda-how-to-cut-and-past-80s-edition.jpg" alt="" />
+
+    <div class="album-cover" ng-hide ng-repeat="track in tracks | orderBy:'votes':'reverse'">
+      <img src="{{track.extraLargeImage}}" alt="{{playing.artists[0].name}} - {{playing.name}}" />
       <div class="album-cover__details">
-        <h3 class="album-cover__track">Track</h3>
-        <h4 class="album-cover__artist">Artist</h4>
+        <h3 class="album-cover__track">{{track.name}}</h3>
+        <h4 class="album-cover__artist">{{track.artists[0].name}}</h4>
       </div>
     </div>
-    <div class="album-cover">
-      <img src="https://dl.dropboxusercontent.com/u/48864824/album-covers/pink-floyd-dark-side-of-the-moon-dark-side.jpg" alt="" />
-      <div class="album-cover__details">
-        <h3 class="album-cover__track">Track</h3>
-        <h4 class="album-cover__artist">Artist</h4>
-      </div>
-    </div>
-    <div class="album-cover">
-      <img src="https://dl.dropboxusercontent.com/u/48864824/album-covers/prince-best-of.jpg" alt="" />
-      <div class="album-cover__details">
-        <h3 class="album-cover__track">Track</h3>
-        <h4 class="album-cover__artist">Artist</h4>
-      </div>
-    </div>
-    <div class="album-cover">
-      <img src="https://dl.dropboxusercontent.com/u/48864824/album-covers/prodigy-music-for-the-gilted-generation.jpg" alt="" />
-      <div class="album-cover__details">
-        <h3 class="album-cover__track">Track</h3>
-        <h4 class="album-cover__artist">Artist</h4>
-      </div>
-    </div>
-    <div class="album-cover">
-      <img src="https://dl.dropboxusercontent.com/u/48864824/album-covers/he-man.gif" alt="" />
-      <div class="album-cover__details">
-        <h3 class="album-cover__track">Track</h3>
-        <h4 class="album-cover__artist">Artist</h4>
-      </div>
-    </div>
-  
+
   </div>
   <!-- end container -->
 
