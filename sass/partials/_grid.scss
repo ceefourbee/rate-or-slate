@@ -6,6 +6,10 @@
  * 3. With the power of modernizr we'll see if boxsizing is supported. If not set the container width to be fixed.
  */
 
+.full-container {
+  @extend %cf;
+}
+
 .container {
   width: 90%;
   //max-width: 884px;

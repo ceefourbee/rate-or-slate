@@ -877,6 +877,41 @@ textarea:focus {
 
  */
 /*
+ * Styles for massive album art
+ *
+ */
+.album-cover {
+  position: relative;
+  float: left;
+  margin-bottom: 0;
+  color: #FFF;
+  background-color: #F00;
+}
+.album-cover:nth-child(odd) {
+  background-color: #00F;
+}
+.album-cover__details {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: .5em;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.album-cover__track,
+.album-cover__artist {
+  margin: 0;
+  padding: 0;
+}
+
+.album-cover__track,
+.album-cover__artist {
+  margin: 0;
+  padding: 0;
+}
+
+/*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
 .hidden {
@@ -930,7 +965,8 @@ textarea:focus {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.grid-row:before,
+.full-container:before, .grid-row:before,
+.full-container:after,
 .grid-row:after {
   content: " ";
   /* 1 */
@@ -938,11 +974,11 @@ textarea:focus {
   /* 2 */
 }
 
-.grid-row:after {
+.full-container:after, .grid-row:after {
   clear: both;
 }
 
-.grid-row {
+.full-container, .grid-row {
   zoom: 1;
 }
 
