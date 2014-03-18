@@ -7,7 +7,17 @@ function viewportWidthCheck() {
     var viewportWidth = document.documentElement.clientWidth
     //alert(viewportWidth);
     
-    var coverWidth = viewportWidth / 3;
+    if (viewportWidth <= "850") {
+      coversPerRow = 3;
+    }
+    else if (viewportWidth >= "851" && viewportWidth <= "1200") {
+      coversPerRow = 4;
+    } 
+    else {
+      coversPerRow = 5;  
+    }
+    
+    var coverWidth = viewportWidth / coversPerRow;
     return coverWidth;
 }
 
