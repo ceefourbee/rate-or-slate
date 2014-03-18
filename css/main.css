@@ -554,6 +554,10 @@ video {
  * 2. Required in older versions of IE when using list items as columns
  * 3. With the power of modernizr we'll see if boxsizing is supported. If not set the container width to be fixed.
  */
+.full-container {
+  margin-bottom: 0;
+}
+
 .container {
   width: 90%;
   margin: 0 auto;
