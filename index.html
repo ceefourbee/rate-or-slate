@@ -46,7 +46,7 @@
         <div class="grid-column grid-column--33">
           <h2>Track listing</h2>
           <div class="media" ng-hide ng-repeat="track in tracks | orderBy:'votes':'reverse'">
-            <img src="images/broken-record-small.png" alt="" class="img-rev" />
+            <img src="{{track.smallImage}}" alt="" class="img-rev" />
             <div class="body">
               <h3 class="media__title">{{track.artists[0].name}} - {{track.name}}</h3>
               <p>Requested by: {{track.listener}} <strong><span>{{track.votes}}</span> votes</strong></p>
@@ -83,7 +83,7 @@
         <div class="grid-column grid-column--33">
           <h2>Now playing</h2>
           <div id="now-playing" class="media">
-            <img id="now-playing-image" src="images/broken-record-medium.png" alt="" class="img-rev" />
+            <img id="now-playing-image" src="{{playing.smallImage}}" alt="" class="img-rev" />
             <div class="body">
               <h3 class="media__title">{{playing.artists[0].name}} - {{playing.name}}</h3>
               <p>Requested by: {{playing.listener}}</p>
