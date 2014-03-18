@@ -1,11 +1,27 @@
 $(function () {
   // bung the current version of jQuery in the console
   console.log($().jquery);
+  
+  //$('#show-search').on('click', function (e) {
+    //e.preventDefault();
+    //$('.full-container').toggleClass('push-menu--open');    
+  //});
+  
+  $(document).bind('keydown', function(e) {
+    if(e.ctrlKey && (e.which == 77)) {
+      e.preventDefault();
+      $('.full-container').toggleClass('push-menu--open');
+      return false;
+    }
+  });
+  
 });
 
+
+
 function viewportWidthCheck() {
-    var viewportWidth = document.documentElement.clientWidth
-    //alert(viewportWidth);
+    var viewportWidth = document.documentElement.clientWidth,
+        coversperRow = 5;
     
     if (viewportWidth <= "850") {
       coversPerRow = 3;

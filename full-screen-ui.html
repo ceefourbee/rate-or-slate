@@ -33,26 +33,59 @@
 </head>
 <body>
 
+<!-- button id="show-search">Search</button -->
+
   <div class='full-container' id='Jukebox' ng-app='Jukebox' ng-controller='JukeboxController'>
   
-    <div class="album-cover" ng-hide >
-      <img src="{{playing.extraLargeImage}}" alt="playing {{playing.name}} by {{playing.artists[0].name}}" />
-      <div class="album-cover__details">
-        <h3 class="album-cover__track">{{playing.name}}</h3>
-        <h4 class="album-cover__artist">{{playing.artists[0].name}}</h4>
+    <div class="push-menu" id="push-menu">
+  		<form class="main-search">
+        <div class="form-group">
+          <label for="track-search" class="visuallyhidden">Search by artist or track name</label>
+          <input type="search" name="track-search" id="track-search" class="main-search__input-search" placeholder="Artist or track" ng-model="query" ng-change="search()" />
+        </div>
+      </form>
+      <ul id="track-search-results" class="main-search__results" ng-hide>
+        <li class="main-search__result-item" ng-repeat="result in results">
+          <span>{{result.artists[0].name}} - {{result.name}}</span>
+          <span ng-switch="inPlaylist(result)">
+            <span ng-switch-when="false">
+              <button type="button" ng-click="request(result)">request</button>
+            </span>
+            <span ng-switch-when="true">
+              <button type="button" ng-click="voteUp(result)">vote up</button>
+              <button type="button" ng-click="voteDown(result)">vote down</button>
+            </span>
+          </span>
+        </li>
+      </ul>
+  	</div>
+  
+    <div id="test" class="push-content">
+      <div class="push-content-inner">
+    
+        <div class="album-cover" ng-hide >
+          <img src="{{playing.extraLargeImage}}" alt="playing {{playing.name}} by {{playing.artists[0].name}}" />
+          <div class="album-cover__details">
+            <h3 class="album-cover__track">{{playing.name}}</h3>
+            <h4 class="album-cover__artist">{{playing.artists[0].name}}</h4>
+          </div>
+        </div>
+    
+        <div class="album-cover" ng-hide ng-repeat="track in tracks | orderBy:['votes', 'order']:'reverse'">
+          <img src="{{track.extraLargeImage}}" alt="{{playing.artists[0].name}} - {{playing.name}}" />
+          <div class="album-cover__details">
+            <h3 class="album-cover__track">{{track.name}}</h3>
+            <h4 class="album-cover__artist">{{track.artists[0].name}}</h4>
+          </div>
+        </div>
+        
       </div>
+      <!--end push-content-inner -->
     </div>
-
-    <div class="album-cover" ng-hide ng-repeat="track in tracks | orderBy:['votes', 'order']:'reverse'">
-      <img src="{{track.extraLargeImage}}" alt="{{playing.artists[0].name}} - {{playing.name}}" />
-      <div class="album-cover__details">
-        <h3 class="album-cover__track">{{track.name}}</h3>
-        <h4 class="album-cover__artist">{{track.artists[0].name}}</h4>
-      </div>
-    </div>
+    <!-- end push-content -->
 
   </div>
-  <!-- end container -->
+  <!-- end full-container -->
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script> !window.jQuery && document.write('<script src="js/vendor/jquery.js"><\/script>') </script>

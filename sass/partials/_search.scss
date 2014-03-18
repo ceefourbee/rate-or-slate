@@ -5,11 +5,17 @@
  
 main-search {
   @at-root {
+    .#{&} {
+      margin-bottom: 0;
+      
+      .form-group {
+        margin-bottom: 0;
+      }
+    }
     .#{&}__input-search {
-      position: absolute;
-      width: -webkit-calc(100% - 79px);
-      width:    -moz-calc(100% - 79px);
-      width:         calc(100% - 79px);
+      width: -webkit-calc(100% - 14px);
+      width:    -moz-calc(100% - 14px);
+      width:         calc(100% - 14px);
       
       .mod-no-calc {
         position: relative;
@@ -21,78 +27,15 @@ main-search {
       margin-left:    -moz-calc(100% - 65px);
       margin-left:         calc(100% - 65px);
     }
-  }
-}
-
-.twitter-typeahead {
-  float: left;
-  width: -webkit-calc(100% - 65px);
-  width:    -moz-calc(100% - 65px);
-  width:         calc(100% - 65px);
-  
-  .mod-no-calc {
-    width: 80%;
-  }
-}
-
-
-tt {
-  @at-root {
-    .#{&}-hint,
-    .#{&}-input {
-      width: -webkit-calc(100% - 14px);
-      width: -moz-calc(100% - 14px);
-      width: calc(100% - 14px);
-      
-      .mod-no-calc {
-        width: 90%;
-      }
+    .#{&}__results {
+      list-style: none;
+      padding-left: 0;
     }
-    .#{&}-dropdown-menu {
-      width: 100%;
-      margin-top: -.3125em;
-      padding:  .4375em 0 .25em;
+    .#{&}__result-item {
+      padding: .25em .375em;
+      border-bottom: .0625em solid rgba(0,0,0,.2);
       color: $colourWhite;
-      background-color: $colourBlack;
-      //background-color: rgba(0, 0, 0, .7);
-      
-      p,
-      .tt-suggestion,
-      .tt-dataset-tracks {
-        margin-bottom: 0;
-      }
-      h3,
-      .tt-suggestion {
-        padding: 0 .375em;
-      }
-      .tt-suggestion {
-        cursor: pointer;
-      }
-      .tt-cursor {
-        background-color: $colourBlue;
-        background-color: rgba(0, 0, 255, .7);
-      }
     }
   }
 }
 
-/* 
- * Copied here so I can see what's going on
- *
-
-<div class="tt-dataset-artists">
-  <h3 class="artists-name">Artists</h3>
-  <span class="tt-suggestions" style="display: block;">
-    <div class="tt-suggestion">
-      <p style="white-space: normal;">Spice Girls</p>
-    </div>
-    <div class="tt-suggestion">
-      <p style="white-space: normal;">Karaoke - Spice Girls</p>
-    </div>
-    <div class="tt-suggestion">
-      <p style="white-space: normal;">Luciano Pavarotti &amp; Céline Dion &amp; Eros Ramazzotti &amp; Zucchero &amp; Stevie Wonder &amp; Trisha Yearwood &amp; Vanessa Williams &amp; Spice Girls &amp; The Corrs &amp; Jon Bon Jovi</p>
-    </div>
-  </span>
-</div>
-
- */
