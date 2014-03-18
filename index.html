@@ -49,7 +49,7 @@
             <img src="images/broken-record-small.png" alt="" class="img-rev" />
             <div class="body">
               <h3 class="media__title">{{track.artists[0].name}} - {{track.name}}</h3>
-              <p>Requested by: {{track.requester}} <strong><span>{{track.votes}}</span> votes</strong></p>
+              <p>Requested by: {{track.listener}} <strong><span>{{track.votes}}</span> votes</strong></p>
             </div>
           </div>
         </div>
@@ -64,9 +64,9 @@
               </div>
             </form>
             <ul id="track-search-results" ng-hide>
-              <li ng-repeat="track in results">
-                <span>{{track.name}}</span>
-                <button type="button" ng-click="request(track)">request</button>
+              <li ng-repeat="result in results">
+                <span>{{result.artists[0].name}} - {{result.name}}</span>
+                <button type="button" ng-click="request(result)">{{result.voteText}}</button>
               </li>
             </ul>
           </div>
@@ -77,14 +77,14 @@
           <div id="now-playing" class="media">
             <img id="now-playing-image" src="images/broken-record-medium.png" alt="" class="img-rev" />
             <div class="body">
-              <h3 class="media__title"><span id="now-playing-artist">[Artist name]</span> <span id="now-playing-track">[Track name]</span></h3>
-              <p>Requested by: <span id="now-playing-listener">[Requester name]</span></p>
+              <h3 class="media__title">{{playing.artists[0].name}} - {{playing.name}}</h3>
+              <p>Requested by: {{playing.listener}}</p>
             </div>
           </div>
 
           <h2>Latest</h2>
           <ol id="latest">
-            <li>[Some action]</li>
+            <li ng-repeat="item in history | reverse">{{item.action}}</li>
           </ol>
         </div>
       </div>
