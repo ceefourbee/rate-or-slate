@@ -39,25 +39,26 @@ app.controller("JukeboxController", function ($scope, $http) {
   $scope.voteUp = function (track) {
     var index = $scope.tracks.indexOf(track);
     $scope.tracks[index].votes++;
-    $scope.history.push({ listener: track.listener, track: track.name, action: track.listener + ' voted for ' + track.name });
+    $scope.updateHistory({ listener: track.listener, track: track.name, action: track.listener + ' voted for ' + track.name });
   };
 
   $scope.voteDown = function (track) {
     var index = $scope.tracks.indexOf(track);
     $scope.tracks[index].votes--;
-    $scope.history.push({ listener: track.listener, track: track.name, action: track.listener + ' voted for ' + track.name });
+    $scope.updateHistory({ listener: track.listener, track: track.name, action: track.listener + ' voted for ' + track.name });
   };
 
   $scope.request = function (track) {
     $scope.getCoverArt(track);
     track.listener = $scope.listener;
     track.votes = 1;
+    track.order = -$scope.tracks.length;
     if ($scope.playing == null) {
       $scope.playing = track;
-      $scope.history.push({ listener: track.listener, track: track.name, action: 'now playing ' + track.name + ' requested by ' + track.listener });
+      $scope.updateHistory({ listener: track.listener, track: track.name, action: 'now playing ' + track.name + ' requested by ' + track.listener });
     } else if ($scope.playing != track) {
       $scope.tracks.push(track);
-      $scope.history.push({ listener: track.listener, track: track.name, action: track.listener + ' requested ' + track.name });
+      $scope.updateHistory({ listener: track.listener, track: track.name, action: track.listener + ' requested ' + track.name });
     }
   };
 
@@ -70,5 +71,14 @@ app.controller("JukeboxController", function ($scope, $http) {
         track.extraLargeImage = data.track.album.image[3]['#text'];
       });
     });
+  };
+
+  $scope.updateHistory = function (historyEntry) {
+    $scope.history.push(historyEntry);
+    $scope.notify(historyEntry.action);
+  };
+
+  $scope.notify = function(action) {
+    toastr.info(action);
   };
 });

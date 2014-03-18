@@ -15,8 +15,7 @@
 
   <link href="css/main.css" rel="stylesheet">
   <!-- ED: Styles for re-organising -->
-  <style>
-  </style>
+  <link href="css/toastr.css" rel="stylesheet">
 
   <!-- REMEMBER to add a description -->
   <meta name="description" content="">
@@ -45,7 +44,7 @@
       <div class="grid-row">
         <div class="grid-column grid-column--33">
           <h2>Track listing</h2>
-          <div class="media" ng-hide ng-repeat="track in tracks | orderBy:'votes':'reverse'">
+          <div class="media" ng-hide ng-repeat="track in tracks | orderBy:['votes', 'order']:'reverse'">
             <img src="{{track.smallImage}}" alt="" class="img-rev" />
             <div class="body">
               <h3 class="media__title">{{track.artists[0].name}} - {{track.name}}</h3>
@@ -70,7 +69,7 @@
                   <span ng-switch-when="false">
                     <button type="button" ng-click="request(result)">request</button>
                   </span>
-                  <span ng-switch-when ="true">
+                  <span ng-switch-when="true">
                     <button type="button" ng-click="voteUp(result)">vote up</button>
                     <button type="button" ng-click="voteDown(result)">vote down</button>
                   </span>
@@ -102,6 +101,7 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script> !window.jQuery && document.write('<script src="js/vendor/jquery.js"><\/script>') </script>
+  <script src="js/vendor/jquery.toastr.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
