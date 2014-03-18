@@ -66,7 +66,15 @@
             <ul id="track-search-results" ng-hide>
               <li ng-repeat="result in results">
                 <span>{{result.artists[0].name}} - {{result.name}}</span>
-                <button type="button" ng-click="request(result)">{{result.voteText}}</button>
+                <span ng-switch="inPlaylist(result)">
+                  <span ng-switch-when="false">
+                    <button type="button" ng-click="request(result)">request</button>
+                  </span>
+                  <span ng-switch-when ="true">
+                    <button type="button" ng-click="voteUp(result)">vote up</button>
+                    <button type="button" ng-click="voteDown(result)">vote down</button>
+                  </span>
+                </span>
               </li>
             </ul>
           </div>

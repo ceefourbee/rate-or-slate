@@ -7,6 +7,10 @@ app.controller("JukeboxController", function ($scope, $http) {
   $scope.listeners = ["Ed Bishop"];
   $scope.listener = "Ed Bishop";
 
+  $scope.inPlaylist = function(track) {
+    return $scope.tracks.indexOf(track) > -1;
+  };
+
   $scope.search = function () {
     $scope.results.length = 0;
     if ($scope.query.length > 2) {
@@ -28,21 +32,27 @@ app.controller("JukeboxController", function ($scope, $http) {
     }
   };
 
+  $scope.voteUp = function(track) {
+    var index = $scope.tracks.indexOf(track);
+    $scope.tracks[index].votes++;
+    $scope.history.push({ listener: track.listener, track: track.name, action: track.listener + ' voted for ' + track.name });
+  };
+
+  $scope.voteDown = function (track) {
+    var index = $scope.tracks.indexOf(track);
+    $scope.tracks[index].votes--;
+    $scope.history.push({ listener: track.listener, track: track.name, action: track.listener + ' voted for ' + track.name });
+  };
+
   $scope.request = function (track) {
     track.listener = $scope.listener;
+    track.votes = 1;
     if ($scope.playing == null) {
       $scope.playing = track;
       $scope.history.push({ listener: track.listener, track: track.name, action: 'now playing ' + track.name + ' requested by ' + track.listener });
-    } else if ($scope.playing != track){
-      var index = $scope.tracks.indexOf(track);
-      if (index > -1) {
-        $scope.tracks[index].votes++;
-        $scope.history.push({ listener: track.listener, track: track.name, action: track.listener + ' voted for ' + track.name });
-      } else {
-        track.votes = 1;
-        $scope.tracks.push(track);
-        $scope.history.push({ listener: track.listener, track: track.name, action: track.listener + ' requested ' + track.name });
-      }
+    } else if ($scope.playing != track) {
+      $scope.tracks.push(track);
+      $scope.history.push({ listener: track.listener, track: track.name, action: track.listener + ' requested ' + track.name });
     }
   };
 });
