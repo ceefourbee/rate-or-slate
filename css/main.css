@@ -803,7 +803,8 @@ body {
 }
 
 .page {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   position: absolute;
   top: 0;
   left: 0;
