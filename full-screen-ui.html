@@ -33,12 +33,12 @@
 </head>
 <body>
 
-<!-- button id="show-search">Search</button -->
+  <!-- button id="show-search">Search</button -->
 
   <div class='full-container' id='Jukebox' ng-app='Jukebox' ng-controller='JukeboxController'>
-  
+
     <div class="push-menu" id="push-menu">
-  		<form class="main-search">
+      <form class="main-search">
         <div class="form-group">
           <label for="track-search" class="visuallyhidden">Search by artist or track name</label>
           <input type="search" name="track-search" id="track-search" class="main-search__input-search" placeholder="Artist or track" ng-model="query" ng-change="search()" />
@@ -58,27 +58,29 @@
           </span>
         </li>
       </ul>
-  	</div>
-  
+    </div>
+
     <div id="test" class="push-content">
       <div class="push-content-inner">
-    
-        <div class="album-cover" ng-hide >
+
+        <div class="album-cover" ng-hide>
           <img src="{{playing.extraLargeImage}}" alt="playing {{playing.name}} by {{playing.artists[0].name}}" />
           <div class="album-cover__details">
             <h3 class="album-cover__track">{{playing.name}}</h3>
             <h4 class="album-cover__artist">{{playing.artists[0].name}}</h4>
           </div>
         </div>
-    
+
         <div class="album-cover" ng-hide ng-repeat="track in tracks | orderBy:['votes', 'order']:'reverse'">
           <img src="{{track.extraLargeImage}}" alt="{{playing.artists[0].name}} - {{playing.name}}" />
           <div class="album-cover__details">
             <h3 class="album-cover__track">{{track.name}}</h3>
             <h4 class="album-cover__artist">{{track.artists[0].name}}</h4>
+            <h5>{{getListeners(track.rated, 3)}} rated this</h5>
+            <h5>{{getListeners(track.slated, 3)}} slated this</h5>
           </div>
         </div>
-        
+
       </div>
       <!--end push-content-inner -->
     </div>
