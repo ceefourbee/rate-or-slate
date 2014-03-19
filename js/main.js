@@ -7,10 +7,14 @@ $(function () {
     //$('.full-container').toggleClass('push-menu--open');    
   //});
   
+  var pushContent = $('.push-content'),
+      pushMenu = $('.push-menu');
+  
   $(document).bind('keydown', function(e) {
     if(e.ctrlKey && (e.which == 77)) {
       e.preventDefault();
-      $('.full-container').toggleClass('push-menu--open');
+      pushContent.toggleClass('open closed');
+      pushMenu.toggleClass('closed open');
       return false;
     }
   });

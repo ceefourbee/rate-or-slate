@@ -13,9 +13,12 @@ main-search {
       }
     }
     .#{&}__input-search {
-      width: -webkit-calc(100% - 14px);
-      width:    -moz-calc(100% - 14px);
-      width:         calc(100% - 14px);
+      width: -webkit-calc(50% - 14px);
+      width:    -moz-calc(50% - 14px);
+      width:         calc(50% - 14px);
+      height: 48px!important;
+      
+      @include fontSize(32, 2);
       
       .mod-no-calc {
         position: relative;
@@ -29,12 +32,15 @@ main-search {
     }
     .#{&}__results {
       list-style: none;
+      width: 51%;
+      margin: 0 auto;
       padding-left: 0;
     }
     .#{&}__result-item {
-      padding: .25em .375em;
+      padding: 0 .875em;
       border-bottom: .0625em solid rgba(0,0,0,.2);
       color: $colourWhite;
+      text-align: left;
     }
   }
 }

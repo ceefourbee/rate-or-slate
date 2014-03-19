@@ -30,6 +30,20 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
   <script src="js/application/Jukebox.js"></script>
   <script src="js/application/JukeboxController.js"></script>
+  <script>
+    WebFontConfig = {
+      google: { families: [ 'Bitter::latin', 'Raleway::latin' ] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
 </head>
 <body>
 
@@ -37,7 +51,7 @@
 
   <div class='full-container' id='Jukebox' ng-app='Jukebox' ng-controller='JukeboxController'>
 
-    <div class="push-menu" id="push-menu">
+    <div id="push-menu" class="page push-menu closed">
       <form class="main-search">
         <div class="form-group">
           <label for="track-search" class="visuallyhidden">Search by artist or track name</label>
@@ -60,7 +74,7 @@
       </ul>
     </div>
 
-    <div id="test" class="push-content">
+    <div id="test" class="page push-content open">
       <div class="push-content-inner">
 
         <div class="album-cover" ng-hide>
@@ -76,8 +90,8 @@
           <div class="album-cover__details">
             <h3 class="album-cover__track">{{track.name}}</h3>
             <h4 class="album-cover__artist">{{track.artists[0].name}}</h4>
-            <h5>{{getListeners(track.rated, 3)}} rated this</h5>
-            <h5>{{getListeners(track.slated, 3)}} slated this</h5>
+            <h5 class="album-cover__rated">{{getListeners(track.rated, 3)}} rated this</h5>
+            <h5 class="album-cover__slated">{{getListeners(track.slated, 3)}} slated this</h5>
           </div>
         </div>
 

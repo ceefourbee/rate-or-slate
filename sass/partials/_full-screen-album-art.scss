@@ -12,6 +12,7 @@ album-cover {
       border: .0625em solid $colourBlack;
       color: #FFF;
       background-color: #F00;
+      text-align: left;
       
       &:nth-child(odd) {
         background-color: #00F;
@@ -27,7 +28,9 @@ album-cover {
       background-color: rgba(0,0,0,.7);
     }
     .#{&}__track,
-    .#{&}__artist {
+    .#{&}__artist,
+    .#{&}__rated,
+    .#{&}__slated {
       margin: 0;
       padding: 0;
     }
