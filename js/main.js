@@ -25,16 +25,19 @@ $(function () {
 
 function viewportWidthCheck() {
     var viewportWidth = document.documentElement.clientWidth,
-        coversperRow = 5;
+        coversPerRow = 5;
     
-    if (viewportWidth <= "850") {
-      coversPerRow = 3;
+    if (viewportWidth <= "500") {
+      coversPerRow = 1;
+    }
+    else if (viewportWidth >= "501" && viewportWidth <= "850") {
+      coversPerRow = 2;
     }
     else if (viewportWidth >= "851" && viewportWidth <= "1200") {
-      coversPerRow = 4;
+      coversPerRow = 3;
     } 
     else {
-      coversPerRow = 5;  
+      coversPerRow = 4;  
     }
     
     var coverWidth = viewportWidth / coversPerRow;

@@ -409,10 +409,11 @@ body {
   color: #242424;
   background: white;
   font-family: 'Raleway', Arial, Helvetica, sans-serif;
-  background-image: url(gfx/sunset4.jpg) !important;
+  background-image: url(gfx/crowd.jpg) !important;
   background-position: 0 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: 100%;
 }
 
 /*
@@ -852,6 +853,21 @@ body {
   text-align: center;
 }
 
+.album-cover.mast-head {
+  padding: 0;
+  background-color: #FF622C;
+  text-align: center;
+}
+
+.album-cover.mast-head .mast-head__title {
+  position: relative;
+  top: 50%;
+  margin: 0;
+  -webkit-transform: translatey(-50%);
+  color: white;
+  text-shadow: 0 1px 1px #242424;
+}
+
 /*
  * typeahead specific styles for the search
  *
@@ -901,13 +917,12 @@ body {
   position: relative;
   float: left;
   margin-bottom: 0;
-  border: 0.0625em solid #242424;
   color: #FFF;
-  background-color: #F00;
+  background-color: #242424;
   text-align: left;
 }
-.album-cover:nth-child(odd) {
-  background-color: #00F;
+.album-cover > img {
+  width: 100%;
 }
 .album-cover__details {
   position: absolute;
@@ -922,12 +937,6 @@ body {
 .album-cover__artist,
 .album-cover__rated,
 .album-cover__slated {
-  margin: 0;
-  padding: 0;
-}
-
-.album-cover__track,
-.album-cover__artist {
   margin: 0;
   padding: 0;
 }
