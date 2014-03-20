@@ -21,6 +21,7 @@ app.controller("JukeboxController", function ($scope, $http) {
       $http({ method: "GET", url: 'http://ws.spotify.com/search/1/track.json?q=' + $scope.query }).success(function (data) {
         for (var resultIndex = 0; resultIndex < data.tracks.length; resultIndex++) {
           var result = data.tracks[resultIndex];
+          $scope.getCoverArt(result);
           result.voteText = 'request';
           for (var trackIndex = 0; trackIndex < $scope.tracks.length; trackIndex++) {
             var track = $scope.tracks[trackIndex];
@@ -51,7 +52,6 @@ app.controller("JukeboxController", function ($scope, $http) {
   };
 
   $scope.request = function (track) {
-    $scope.getCoverArt(track);
     track.listener = $scope.listener;
     track.votes = 1;
     track.order = -$scope.tracks.length;
