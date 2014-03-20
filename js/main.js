@@ -10,13 +10,19 @@ $(function () {
   var pushContent = $('.push-content'),
       pushMenu = $('.push-menu');
   
-  $(document).bind('keydown', function(e) {
+  $(document).keydown(function(e) {
     if(e.ctrlKey && (e.which == 77)) {
       e.preventDefault();
       pushContent.toggleClass('open closed');
       pushMenu.toggleClass('closed open');
+      setTimeout(function() {
+        if ($(pushMenu).hasClass('open')) {
+          $('#track-search').focus();
+        }
+      }, 200);
       return false;
     }
+    return true;
   });
   
 });

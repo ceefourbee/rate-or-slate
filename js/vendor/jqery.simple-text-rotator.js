@@ -2,35 +2,37 @@
 
   var defaults = {
     animation: "dissolve",
-    speed: 2000
+    speed: 2000,
+    items: null, 
+    max: 0
   };
 
   $.fx.step.textShadowBlur = function (fx) {
     $(fx.elem).prop('textShadowBlur', fx.now).css({ textShadow: '0 0 ' + Math.floor(fx.now) + 'px black' });
   };
 
-  $.fn.textrotator = function(options) {
+  $.fn.textrotator = function (options) {
     var settings = $.extend({}, defaults, options);
-
-    return this.each(function() {
-      var parent = $(this);
-      var array = [];
-      $.each(parent.children(), function (key, child) {
-        array.push($(child).text());
+    var parent = $(this);
+    if (!options.items.length) {
+      $.each(parent.children(), function(key, child) {
+        options.items.push($(child).text());
       });
-      parent.text(array[0]);
+    }
+    parent.text(options.items.reverse()[0]);
 
-      // animation option
-      var rotate = function() {
-        switch (settings.animation) {
+    // animation option
+    var rotate = function () {
+      var array = options.items.reverse();
+      switch (settings.animation) {
         case 'dissolve':
           parent.animate({
             textShadowBlur: 20,
             opacity: 0
-          }, 500, function() {
-            index = $.inArray(parent.text(), array);
-            if ((index + 1) == array.length) index = -1;
-            parent.text(array[index + 1]).animate({
+          }, 500, function () {
+            index = $.inArray(parent.text(), array.reverse());
+            if ((index + 1) == array.reverse().length || ((index + 1) == options.max)) index = -1;
+            parent.text(array.reverse()[index + 1]).animate({
               textShadowBlur: 0,
               opacity: 1
             }, 500);
@@ -44,7 +46,7 @@
 
           var initial = parent.text();
           var index = $.inArray(initial, array);
-          if ((index + 1) == array.length) index = -1;
+          if ((index + 1) == array.length || ((index + 1) == options.max)) index = -1;
 
           parent.html("");
           $("<span class='front'>" + initial + "</span>").appendTo(parent);
@@ -65,7 +67,7 @@
 
           var initial = parent.text();
           var index = $.inArray(initial, array);
-          if ((index + 1) == array.length) index = -1;
+          if ((index + 1) == array.length || ((index + 1) == options.max)) index = -1;
 
           parent.html("");
           $("<span class='front'>" + initial + "</span>").appendTo(parent);
@@ -86,7 +88,7 @@
 
           var initial = parent.text();
           var index = $.inArray(initial, array);
-          if ((index + 1) == array.length) index = -1;
+          if ((index + 1) == array.length || ((index + 1) == options.max)) index = -1;
 
           parent.html("");
           $("<span class='front'>" + initial + "</span>").appendTo(parent);
@@ -107,7 +109,7 @@
 
           var initial = parent.text();
           var index = $.inArray(initial, array);
-          if ((index + 1) == array.length) index = -1;
+          if ((index + 1) == array.length || ((index + 1) == options.max)) index = -1;
 
           parent.html("");
           $("<span class='front'>" + initial + "</span>").appendTo(parent);
@@ -126,7 +128,7 @@
             parent.html(parent.find(".rotating").html());
           }
           index = $.inArray(parent.text(), array);
-          if ((index + 1) == array.length) index = -1;
+          if ((index + 1) == array.length || ((index + 1) == options.max)) index = -1;
 
           parent.wrapInner("<span class='rotating spin' />").find(".rotating").hide().text(array[index + 1]).show().css({
             "-webkit-transform": " rotate(0) scale(1)",
@@ -137,20 +139,21 @@
           break;
 
         case 'fade':
-          parent.fadeOut(settings.speed, function() {
+          parent.fadeOut(settings.speed, function () {
             index = $.inArray(parent.text(), array);
-            if ((index + 1) == array.length) index = -1;
+            if ((index + 1) == array.length || ((index + 1) == options.max)) index = -1;
             parent.text(array[index + 1]).fadeIn(settings.speed);
           });
           break;
-        }
-      };
-      setInterval(rotate, settings.speed);
-    });
+      }
+    };
+    return setInterval(rotate, settings.speed);
   };
 
 }(window.jQuery);
 
-$(function() {
-  $('.rotate').textrotator({ animation: 'spin', speed: 5000 });
+$(function () {
+  var scope = angular.element($("#Jukebox")).scope();
+  $('.rotate.spin').textrotator({ animation: 'spin', speed: 5000, items: scope.listeners });
+  $('.rotate.flipCube').textrotator({ animation: 'flipCube', speed: 5000, items: scope.history, max: 5 });
 });
