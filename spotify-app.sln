@@ -8,20 +8,20 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "spotify-app", "http://local
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_54309"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\GitHub\spotify-app\"
+		Debug.AspNetCompiler.PhysicalPath = "..\spotify-app\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54309\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_54309"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\GitHub\spotify-app\"
+		Release.AspNetCompiler.PhysicalPath = "..\spotify-app\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54309\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "..\..\..\GitHub\spotify-app\"
+		SlnRelativePath = "..\spotify-app\"
 	EndProjectSection
 EndProject
 Global
