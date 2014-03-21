@@ -84,7 +84,9 @@ app.controller("JukeboxController", function ($scope, $http) {
     if ($scope.history.length == 1 && $scope.history == 'Nothings happening right now, request some tracks!') {
       $scope.history.length = 0;
     }
+    clearHistoryRotator();
     $scope.history.push(action);
+    setHistoryRotator($scope);
     $scope.notify(action);
   };
 
