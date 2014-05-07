@@ -1,3 +1,3 @@
-# Spotify jukebox app
+# A Magical Jukebox App for Rating and Slating Tunes
 
-The start of (hopefully an awesome) jukebox/cloud app for Spotify.
+The start of a, hopefully awesome, jukebox/cloud app for various music playing software.
