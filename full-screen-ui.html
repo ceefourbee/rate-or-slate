@@ -49,7 +49,13 @@
 </head>
 <body>
 
-  <!-- button id="show-search">Search</button -->
+  <svg version="1.1" width="0" height="0" class="visuallyhidden">
+    <g id="search-icon">
+      <polygon class="st1" points="29.3,32.3 20.8,23.8 23.8,20.8 32.3,29.3" />
+      <ellipse class="st0" cx="15.9" cy="15.9" rx="8.2" ry="8.2" />
+    	<circle class="st0" cx="20" cy="20" r="19" />
+    </g>
+  </svg>
 
   <div class='full-container' id='Jukebox' ng-app='Jukebox' ng-controller='JukeboxController'>
 
@@ -81,9 +87,17 @@
       <div class="push-content-inner">
 
         <div class="album-cover mast-head">
-          <h2 class="mast-head__title">Pssst...</h2>
-          <div><strong id="listeners"></strong> is listening</div>
-          <div id="history"></div>
+          <div class="mast-head__centre">
+            <h2 class="mast-head__title">Pssst...</h2>
+            <div><strong id="listeners"></strong> is listening</div>
+            <div id="history"></div>
+          </div>
+          <button id="show-search" class="show-search-button" title="Search music">
+            <svg class="search-icon" viewbox="0 0 40 40">
+              <use xlink:href="#search-icon" />
+            </svg>
+            <span class="visuallyhidden">Search music</span>
+          </button>
         </div>
 
         <div class="album-cover" ng-hide>

@@ -1,0 +1,29 @@
+st {
+  @at-root {
+    .#{&}0 {
+      fill: none;
+      stroke: rgba($colourWhite, .9);
+      stroke-width: 2;
+      stroke-miterlimit: 10;
+    }
+    .#{&}1 {
+      fill: rgba($colourWhite, .9);
+    }
+  }
+}
+
+.show-search-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.5em;
+  height: 2.5em;
+  margin: .25em;
+  padding: 0;
+  border: 0 none;
+  background-color: transparent;
+  
+  .mod-no-inlinesvg & {
+    background-image: url(/images/search-icon.png);
+  }
+}

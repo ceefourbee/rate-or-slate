@@ -15,13 +15,20 @@ mast-head {
 .album-cover.mast-head {
   padding: 0;
   background-color: #FF622C;
+  background-color: rgba(255, 98, 44, .6);
   text-align: center;
 }
-.album-cover.mast-head .mast-head__title {
+.album-cover.mast-head .mast-head__centre {
   position: relative;
   top: 50%;
+  -webkit-transform: translateY(-50%);
+     -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+       -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.album-cover.mast-head .mast-head__title {
   margin: 0;
-  -webkit-transform: translatey(-50%);
   color: $colourWhite;
   text-shadow: 0 1px 1px #242424;
 

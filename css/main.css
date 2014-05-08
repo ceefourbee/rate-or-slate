@@ -54,14 +54,14 @@ video {
   /* 2 */
 }
 
-  /**
+/**
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
-  audio:not([controls]) {
-    display: none;
-    height: 0;
-  }
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
 
 /**
  * Address `[hidden]` styling not present in IE 8/9.
@@ -81,13 +81,13 @@ a {
   background: transparent;
 }
 
-  /**
+/**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-  a:active,
-  a:hover {
-    outline: 0;
-  }
+a:active,
+a:hover {
+  outline: 0;
+}
 
 /* Text-level semantics
    ========================================================================== */
@@ -268,22 +268,22 @@ input[type="submit"] {
   /* 3 */
 }
 
-  /**
+/**
  * Re-set default cursor for disabled elements.
  */
-  button[disabled],
-  html input[disabled] {
-    cursor: default;
-  }
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
 
-  /**
+/**
  * Remove inner padding and border in Firefox 4+.
  */
-  button::-moz-focus-inner,
-  input::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-  }
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
 
 /**
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
@@ -293,54 +293,54 @@ input {
   line-height: normal;
 }
 
-  /**
+/**
  * It's recommended that you don't attempt to style these elements.
  * Firefox's implementation doesn't respect box-sizing, padding, or width.
  *
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-  input[type="checkbox"],
-  input[type="radio"] {
-    box-sizing: border-box;
-    /* 1 */
-    padding: 0;
-    /* 2 */
-  }
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
 
-  /**
+/**
  * Fix the cursor style for Chrome's increment/decrement buttons. For certain
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    height: auto;
-  }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
 
-  /**
+/**
  * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
  */
-  input[type="search"] {
-    -webkit-appearance: textfield;
-    /* 1 */
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    /* 2 */
-    box-sizing: content-box;
-  }
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
 
-    /**
+/**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-    input[type="search"]::-webkit-search-cancel-button,
-    input[type="search"]::-webkit-search-decoration {
-      -webkit-appearance: none;
-    }
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
 
 /**
  * Define consistent border, margin, and padding.
@@ -502,11 +502,11 @@ a {
   border-bottom: 1px solid #3C78B4;
 }
 
-  a,
-  a:hover,
-  a:focus {
-    text-decoration: none;
-  }
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
 
 /*
  * Give all block elements the base margin
@@ -561,7 +561,6 @@ video {
   width: 90%;
   margin: 0 auto;
 }
-
 .mod-no-boxsizing .container {
   width: 884px;
   /* 3 */
@@ -570,7 +569,6 @@ video {
 .grid-row {
   padding: 0;
 }
-
 .grid-column {
   float: left;
   display: block;
@@ -580,39 +578,31 @@ video {
   padding: 0 24px;
   padding: 0 1.5rem;
 }
-
 .grid-column--25 {
   width: 25%;
   *width: 19.5480225989%;
 }
-
 .grid-row--list .grid-column--25:nth-child(4n+1) {
   clear: left;
 }
-
 .grid-column--33 {
   width: 33.33333333%;
   *width: 27.8719397363%;
 }
-
 .grid-row--list .grid-column--33:nth-child(3n+1) {
   clear: left;
 }
-
 .grid-column--50 {
   width: 50%;
   *width: 44.5197740113%;
 }
-
 .grid-row--list .grid-column--50:nth-child(2n+1) {
   clear: left;
 }
-
 .grid-column--66 {
   width: 66.66666666%;
   *width: 61.1676082863%;
 }
-
 .grid-column--100 {
   width: 100%;
   *width: 94.4632768362%;
@@ -627,7 +617,6 @@ video {
     width: 100%;
   }
 }
-
 h1,
 .h1 {
   font-size: 72px;
@@ -649,6 +638,31 @@ h3,
   line-height: 1;
 }
 
+.st0 {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+}
+.st1 {
+  fill: rgba(255, 255, 255, 0.9);
+}
+
+.show-search-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.5em;
+  height: 2.5em;
+  margin: .25em;
+  padding: 0;
+  border: 0 none;
+  background-color: transparent;
+}
+.mod-no-inlinesvg .show-search-button {
+  background-image: url(/images/search-icon.png);
+}
+
 /*
  * Nav abstraction/object
  *
@@ -663,12 +677,12 @@ h3,
   padding-left: 0;
 }
 
-  .nav > li,
-  .nav > li > a {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-  }
+.nav > li,
+.nav > li > a {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
 
 /*
  * Media object
@@ -713,9 +727,9 @@ h3,
   overflow: hidden;
 }
 
-  .body > :last-child {
-    margin-bottom: 0;
-  }
+.body > :last-child {
+  margin-bottom: 0;
+}
 
 /*
  * Extending this
@@ -790,12 +804,12 @@ textarea {
   /* 96px */
 }
 
-  button:focus,
-  input:focus,
-  select:focus,
-  textarea:focus {
-    outline: 2px solid #FF9900;
-  }
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #FF9900;
+}
 
 html,
 body {
@@ -866,18 +880,26 @@ body {
 
 .album-cover.mast-head {
   padding: 0;
-  background-color: rgba(255,98,44, 0.6);
+  background-color: #FF622C;
+  background-color: rgba(255, 98, 44, 0.6);
   text-align: center;
 }
 
-  .album-cover.mast-head .mast-head__title {
-    position: relative;
-    top: 50%;
-    margin: 0;
-    -webkit-transform: translatey(-50%);
-    color: white;
-    text-shadow: 0 1px 1px #242424;
-  }
+.album-cover.mast-head .mast-head__centre {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.album-cover.mast-head .mast-head__title {
+  margin: 0;
+  color: white;
+  text-shadow: 0 1px 1px #242424;
+}
 
 /*
  * typeahead specific styles for the search
@@ -886,11 +908,9 @@ body {
 .main-search {
   margin-bottom: 0;
 }
-
-  .main-search .form-group {
-    margin-bottom: 0;
-  }
-
+.main-search .form-group {
+  margin-bottom: 0;
+}
 .main-search__input-search {
   width: -webkit-calc(50% - 14px);
   width: -moz-calc(50% - 14px);
@@ -900,25 +920,21 @@ body {
   font-size: 2rem;
   line-height: 1.5;
 }
-
-  .main-search__input-search .mod-no-calc {
-    position: relative;
-    width: 80%;
-  }
-
+.main-search__input-search .mod-no-calc {
+  position: relative;
+  width: 80%;
+}
 .main-search__button-search {
   margin-left: -webkit-calc(100% - 65px);
   margin-left: -moz-calc(100% - 65px);
   margin-left: calc(100% - 65px);
 }
-
 .main-search__results {
   list-style: none;
   width: 51%;
   margin: 0 auto;
   padding-left: 0;
 }
-
 .main-search__result-item {
   padding: 0 .875em;
   border-bottom: 0.0625em solid rgba(0, 0, 0, 0.2);
@@ -935,14 +951,13 @@ body {
   float: left;
   margin-bottom: 0;
   color: #FFF;
-  background-color: rgba(50,50,50,0.6);
+  background-color: #242424;
+  background-color: rgba(36, 36, 36, 0.6);
   text-align: left;
 }
-
-  .album-cover > img {
-    width: 100%;
-  }
-
+.album-cover > img {
+  width: 100%;
+}
 .album-cover__details {
   position: absolute;
   left: 0;
@@ -952,7 +967,6 @@ body {
   padding: .5em;
   background-color: rgba(0, 0, 0, 0.7);
 }
-
 .album-cover__track,
 .album-cover__artist,
 .album-cover__rated,
@@ -983,19 +997,19 @@ body {
   width: 1px;
 }
 
-  /*
+/*
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-  .visuallyhidden.focusable:active,
-  .visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
-  }
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
 
 /*
  * Hide visually and from screenreaders, but maintain layout
@@ -1040,7 +1054,6 @@ body {
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }
-
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
@@ -1062,9 +1075,9 @@ body {
     text-decoration: underline;
   }
 
-    a[href]:after {
-      content: " (" attr(href) ")";
-    }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
 
   abbr[title]:after {
     content: " (" attr(title) ")";
@@ -1101,7 +1114,6 @@ body {
   @page {
     margin: 0.5cm;
   }
-
   p,
   h2,
   h3 {

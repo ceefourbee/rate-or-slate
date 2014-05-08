@@ -2,25 +2,29 @@ $(function () {
   // bung the current version of jQuery in the console
   console.log($().jquery);
 
-  //$('#show-search').on('click', function (e) {
-  //e.preventDefault();
-  //$('.full-container').toggleClass('push-menu--open');    
-  //});
-
   var pushContent = $('.push-content'),
       pushMenu = $('.push-menu');
+      
+  function togglePages() {
+    pushContent.toggleClass('open closed');
+    pushMenu.toggleClass('closed open');
+    setTimeout(function () {
+      if ($(pushMenu).hasClass('open')) {
+        $('#track-search').focus();
+      }
+    }, 200);
+    return false;  
+  }
+      
+  $('#show-search').on('click', function (e) {
+    e.preventDefault();
+    togglePages();
+  });
 
   $(document).keydown(function (e) {
     if (e.ctrlKey && (e.which == 77)) {
       e.preventDefault();
-      pushContent.toggleClass('open closed');
-      pushMenu.toggleClass('closed open');
-      setTimeout(function () {
-        if ($(pushMenu).hasClass('open')) {
-          $('#track-search').focus();
-        }
-      }, 200);
-      return false;
+      togglePages();
     }
     return true;
   });
@@ -30,7 +34,7 @@ $(function () {
 
 var howManyTimesAmICalled = 0;
 function getCorrectCoverWidth() {
-  var viewportWidth = 1295; //$("#test").width();
+  var viewportWidth = $("#test").width();
   console.log("Viewport width: " + viewportWidth + " (" + howManyTimesAmICalled++ + ")");
 
   var coversPerRow;
