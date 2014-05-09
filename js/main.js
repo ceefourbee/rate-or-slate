@@ -34,7 +34,7 @@ $(function () {
 
 var howManyTimesAmICalled = 0;
 function getCorrectCoverWidth() {
-  var viewportWidth = $("#test").width();
+  var viewportWidth = document.documentElement.clientWidth;
   console.log("Viewport width: " + viewportWidth + " (" + howManyTimesAmICalled++ + ")");
 
   var coversPerRow;
