@@ -34,9 +34,9 @@
   <script src="js/application/JukeboxController.js"></script>
   <script>
     WebFontConfig = {
-      google: { families: [ 'Bitter::latin', 'Raleway::latin' ] }
+      google: { families: ['Bitter::latin', 'Raleway::latin'] }
     };
-    (function() {
+    (function () {
       var wf = document.createElement('script');
       wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
         '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
@@ -53,7 +53,7 @@
     <g id="search-icon">
       <polygon class="st1" points="29.3,32.3 20.8,23.8 23.8,20.8 32.3,29.3" />
       <ellipse class="st0" cx="15.9" cy="15.9" rx="8.2" ry="8.2" />
-    	<circle class="st0" cx="20" cy="20" r="19" />
+      <circle class="st0" cx="20" cy="20" r="19" />
     </g>
   </svg>
 
@@ -78,13 +78,13 @@
               <button type="button" ng-click="voteDown(result)">vote down</button>
             </span>
           </span>
-          <img src="{{result.smallImage}}" alt="{{result.name}}"/>
+          <img src="{{result.smallImage}}" alt="{{result.name}}" />
         </li>
       </ul>
     </div>
 
     <div id="test" class="page push-content open">
-      <div class="push-content-inner">
+      <div id="album-art-container" class="push-content-inner">
 
         <div class="album-cover mast-head">
           <div class="mast-head__centre">
