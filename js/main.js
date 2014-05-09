@@ -34,7 +34,7 @@ $(function () {
 
 var howManyTimesAmICalled = 0;
 function getCorrectCoverWidth() {
-  var viewportWidth = $("#test").width();
+  var viewportWidth = $("#album-art-container").width();
   console.log("Viewport width: " + viewportWidth + " (" + howManyTimesAmICalled++ + ")");
 
   var coversPerRow;
