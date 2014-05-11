@@ -3,8 +3,6 @@ body {
   height: 100%;
 }
 .full-container {
-  overflow-x: hidden;
-  overflow-y: scroll;
   position: relative;
   width: 100%;
   height: 100%;
@@ -50,4 +48,8 @@ body {
   visibility: visible;
   -webkit-transform: translate3d(0, 0, 0);
           transform: rotate3d(0, 0, 0);
+}
+.push-content__inner {
+  @extend %cf;
+  margin-bottom: 0;
 }
